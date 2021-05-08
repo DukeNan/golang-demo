@@ -1,3 +1,6 @@
-# golang-demo
+# golang学习笔记
 
-golang 学习文档
+### 思维导图
+
+![Go思维导图](./images/Go.png)
+
