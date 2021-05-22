@@ -105,4 +105,23 @@ func main() {
 	// 要删除索引为2的元素
 	x = append(x[:2], x[3:]...)
 	fmt.Println(x)
+
+	fmt.Println("========切片扩容策略==============")
+	ints := []int{1, 2}          // 原容量oldCap =2
+	ints = append(ints, 3, 4, 5) // 预估容量cap = 5
+	/*
+		 if oldCap * 2 < cap {
+			newCap = cap
+		} else {
+			if oldLen < 1024 {
+				newCap = oldCap *2
+			}else if oldLen >= 1024 {
+				newCap = oldCap *1.25
+			}
+		}
+	*/
+	// 上面例子中newCap = 5,int数组所占字节为5*8 = 40，但go语言向内存管理模块向操作系统申请的内存容量却没有40大小的，只有48符合，于是newCap = 48/8 = 6
+	// go语言内存管理模块是16bytes叠加的，8，16，32，48，64，80，96
+	// 参考博客：https://www.cnblogs.com/ldaniel/p/8502867.html?utm_source=debugrun&utm_medium=referral
+	fmt.Printf("len=%d,cap=%d \n", len(ints), cap(ints))
 }
