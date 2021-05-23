@@ -1,28 +1,25 @@
 package main
 
-import (
-	"fmt"
-)
-
-type Person struct {
-	name   string
-	age    int8
-	dreams []string
-}
-
-func (p *Person) SetDreams(dreams []string) {
-	// p.dreams = dreams
-	p.dreams = make([]string, len(dreams))
-	copy(p.dreams, dreams)
-}
+import "fmt"
 
 func main() {
-	p1 := Person{name: "小王子", age: 18}
-	data := []string{"吃饭", "睡觉", "打豆豆"}
-	p1.SetDreams(data)
-
-	// 你真的想要修改 p1.dreams 吗？
-	data[1] = "不睡觉"
-	fmt.Println(p1.dreams) // ?
-	fmt.Println(len(p1.dreams), cap(p1.dreams))
+	// fmt.Println("欢迎来到学生信息管理系统")
+	// fmt.Println("1. 添加学生")
+	// fmt.Println("2. 编辑学生信息")
+	// fmt.Println("3. 展示学生信息")
+	// fmt.Println("4. 退出系统")
+	// fmt.Println("\n
+	// *******************
+	// ")
+	desc := `
+*******************************************
+          欢迎来到学生信息管理系统             
+             1. 添加学生                     
+             2. 编辑学生信息
+             3. 展示学生信息
+             4. 退出系统
+*******************************************
+	`
+	fmt.Println(desc)
+	fmt.Printf("%T\n", desc)
 }
