@@ -1,10 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"context"
+	"fmt"
+	"time"
+)
+
+func handle(ctx context.Context, duration time.Duration) {
+	select {
+	case <-ctx.Done():
+		fmt.Println("handel", ctx.Err())
+	case <-time.After(duration):
+		fmt.Println("process request with ", duration)
+	}
+}
 
 func main() {
-	for i := 0; i < 10; i++ {
-		defer fmt.Println(i)
+	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
+	defer cancel()
+	go handle(ctx, 1500*time.Millisecond)
+	select {
+	case <-ctx.Done():
+		fmt.Println("main", ctx.Err())
 	}
-	fmt.Println("程序结束...")
 }
