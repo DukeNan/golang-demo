@@ -1,0 +1,6 @@
+2021/10/11 20:56:00.416994 /Users/dukenan/go/src/github.com/dukenan/golang-demo/go-code/39log/main.go:18: 这是一条很普通的日志。
+2021/10/11 20:56:00.417224 /Users/dukenan/go/src/github.com/dukenan/golang-demo/go-code/39log/main.go:20: 这是一条很普通的日志……
+[日志前缀]2021/10/11 20:56:00.417252 /Users/dukenan/go/src/github.com/dukenan/golang-demo/go-code/39log/main.go:22: 这是一条会触发fatal的日志
+2021/10/11 20:56:09.116182 /Users/dukenan/go/src/github.com/dukenan/golang-demo/go-code/39log/main.go:18: 这是一条很普通的日志。
+2021/10/11 20:56:09.116353 /Users/dukenan/go/src/github.com/dukenan/golang-demo/go-code/39log/main.go:20: 这是一条很普通的日志……
+[日志前缀]2021/10/11 20:56:09.116367 /Users/dukenan/go/src/github.com/dukenan/golang-demo/go-code/39log/main.go:22: 这是一条会触发fatal的日志
