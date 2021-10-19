@@ -1,26 +1,16 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"time"
 )
 
-func handle(ctx context.Context, duration time.Duration) {
-	select {
-	case <-ctx.Done():
-		fmt.Println("handel", ctx.Err())
-	case <-time.After(duration):
-		fmt.Println("process request with ", duration)
-	}
+func GetNowTime() time.Time {
+	location, _ := time.LoadLocation("Asia/Shanghai")
+	return time.Now().In(location)
 }
 
 func main() {
-	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
-	defer cancel()
-	go handle(ctx, 1500*time.Millisecond)
-	select {
-	case <-ctx.Done():
-		fmt.Println("main", ctx.Err())
-	}
+	now := GetNowTime()
+	fmt.Printf("现在的时间是：%s\n", now)
 }
