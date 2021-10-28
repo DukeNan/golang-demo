@@ -1,16 +1,24 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
+import "fmt"
 
-func GetNowTime() time.Time {
-	location, _ := time.LoadLocation("Asia/Shanghai")
-	return time.Now().In(location)
+type student struct {
+	name string
+	age  int
 }
 
 func main() {
-	now := GetNowTime()
-	fmt.Printf("现在的时间是：%s\n", now)
+	m := make(map[string]*student)
+	stus := []student{
+		{name: "小王子", age: 18},
+		{name: "娜扎", age: 23},
+		{name: "大王八", age: 9000},
+	}
+
+	for _, stu := range stus {
+		m[stu.name] = &stu
+	}
+	for k, v := range m {
+		fmt.Println(k, "=>", v.name)
+	}
 }
