@@ -13,12 +13,13 @@ type person struct {
 }
 
 type book struct{ title string }
-
+// 获取类型
 func reflectType(x interface{}) {
 	v := reflect.TypeOf(x)
 	fmt.Printf("type: %v, kind: %v\n", v.Name(), v.Kind())
 }
 
+// 获取值
 func reflectValue(x interface{}) {
 	v := reflect.ValueOf(x)
 	k := v.Kind()
@@ -36,6 +37,7 @@ func reflectValue(x interface{}) {
 	}
 }
 
+// 通过反射设置变量的值
 func reflectSetValue1(x interface{}) {
 	v := reflect.ValueOf(x)
 	if v.Kind() == reflect.Int64 {
@@ -43,6 +45,7 @@ func reflectSetValue1(x interface{}) {
 	}
 }
 
+// 通过反射设置指针变量的值
 func reflectSetValue2(x interface{}) {
 	v := reflect.ValueOf(x)
 	// 反射中使用 Elem()方法获取指针对应的值

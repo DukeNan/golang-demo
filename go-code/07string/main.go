@@ -7,7 +7,9 @@ import (
 
 func main() {
 	s := "/Users/dukenan/go/src/github.com/dukenan/golang-demo/go-code"
+	// 获取字符串类型
 	fmt.Printf("%T\n", s)
+	// 获取字符串值
 	fmt.Printf("%v\n", s)
 	s1 := `
 	 abd

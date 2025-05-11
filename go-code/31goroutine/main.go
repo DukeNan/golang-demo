@@ -28,15 +28,17 @@ func b() {
 }
 
 func main() {
-	// for i := 0; i < 10; i++ {
-	// 	wg.Add(1)
-	// 	go hello(i)
-	// }
-	// wg.Wait()
-	runtime.GOMAXPROCS(8)
-	wg.Add(2)
-	go a()
-	go b()
+	for i := 0; i < 10; i++ {
+		wg.Add(1)
+		go hello(i)
+	}
 	wg.Wait()
+	
+	// 设置cpu的核数
+	// runtime.GOMAXPROCS(8)
+	// wg.Add(2)
+	// go a()
+	// go b()
+	// wg.Wait()
 
 }

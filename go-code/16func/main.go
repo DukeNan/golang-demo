@@ -2,14 +2,17 @@ package main
 
 import "fmt"
 
+// 函数定义
 func getName(age int) string {
 	return "laowang" + fmt.Sprintf("%d", age)
 }
 
+// 函数定义
 func intSum(x, y int) int {
 	return x + y
 }
 
+// 可变参数
 func intSum2(x ...int) int {
 	fmt.Println(x) // x是切片
 	sum := 0
@@ -19,6 +22,7 @@ func intSum2(x ...int) int {
 	return sum
 }
 
+// 固定参数搭配可变参数
 func intSum3(x int, y ...int) int {
 	fmt.Println(x, y)
 	sum := x
@@ -28,18 +32,21 @@ func intSum3(x int, y ...int) int {
 	return sum
 }
 
+// 多返回值
 func calc(x, y int) (int, int) {
 	sum := x + y
 	sub := x - y
 	return sum, sub
 }
 
+// 多返回值	
 func calc1(x, y int) (sum, sub int) {
 	sum = x + y
 	sub = x - y
 	return
 }
 
+// 当我们的一个函数返回值类型为slice时，nil可以看成一个有效的slice，没有必要显示返回一个长度为0的切片。
 func someFunc(x string) []int {
 	if x == "" {
 		return nil
@@ -48,6 +55,7 @@ func someFunc(x string) []int {
 }
 
 func main() {
+	// 函数调用
 	name := getName(20)
 	fmt.Println(name)
 	total := intSum(10, 20)
