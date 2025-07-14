@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"runtime"
+	// "runtime"
 	"sync"
 )
 
@@ -33,7 +33,7 @@ func main() {
 		go hello(i)
 	}
 	wg.Wait()
-	
+
 	// 设置cpu的核数
 	// runtime.GOMAXPROCS(8)
 	// wg.Add(2)
